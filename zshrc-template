@@ -1,0 +1,76 @@
+#
+# Your custom configuration
+# This is heavily inspired from oh-my-zsh but tailored to fit my previous
+# zsh configs.
+
+# Zsh will try its best to find your favorite users and hosts, but you can add
+# some here if you want
+ZSH_USERS=(jrid jridoux julien)
+ZSH_HOSTS=(typhoon jrid)
+
+# For Mutt users 
+EMAIL=jridoux@unimelb.edu.au
+DOMAIN=".cubinlab.ee.unimelb.edu.au"
+MAILDIR=~/mbox
+
+# Set name of the theme to load.
+# "random" will randomly pick one.
+ZSH_THEME="fatarrow-unicode"
+
+# Set to this to use case-sensitive completion
+CASE_SENSITIVE="true"
+
+# Choose between vi or emacs (default) style bindkeys on the command line
+ZLE_BINDKEYS="vi"
+
+# Some ZSH optimisations if you use a DVORAK keyboard
+ZSH_DVORAK_KB="true"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+COMPLETION_WAITING_DOTS="true"
+
+# Enable useful VCS only (overwritten by DISABLE_VCS_INFO)
+# See vcs_info_printsys for a list of supported VCS
+enabled_vcs=(git svn)
+
+# Uncomment if you don't want any info about Version Control Systems 
+# DISABLE_VCS_INFO="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git git-flow osx gnu-utils vi-mode)
+
+# The interval in seconds between checks for login/logout activity using the
+# watch parameter.
+LOGCHECK=30
+
+# Mail location and interval between checks
+MAIL="/var/mail/${LOGNAME}"
+MAILCHECK=30
+
+# If command execution time is larger than REPORTTIME, show some stats
+REPORTTIME=5
+
+# Report login/logout events. 'notme' is 'all' but current user
+watch=(notme)
+
+# In the line editor, the number of matches to list without asking first. If the
+# value is negative, the list will be shown if it spans at most as many lines as
+# given by the absolute value. If set to zero, the shell asks only if the top of
+# the listing would scroll off the screen.
+LISTMAX=0
+
+# Some obvious ones
+# Very likely you don't need to change anything below
+SHELL=`which zsh`
+PAGER=`which less`
+TMPDIR=/tmp
+
+# Where ZSH configs and themes live
+ZSH=$HOME/.zsh
+
+# Directory for history, completion cache, etc
+ZSH_CACHE=$HOME/.zcache
+
+source $ZSH/zsh-loader.sh
+
