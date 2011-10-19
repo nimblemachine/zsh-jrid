@@ -2,7 +2,7 @@
 # History
 # ----------------------------------------------------------------------------
 
-HISTFILE="$ZSH_CACHE/history/history"
+HISTFILE="$ZSH_CACHE/history"
 HISTSIZE=10000
 SAVEHIST=10000
 

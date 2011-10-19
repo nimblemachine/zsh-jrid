@@ -97,7 +97,7 @@ zstyle ':completion:*' verbose yes
 zstyle ':completion:*' menu select=2
 
 zstyle ':completion::complete:*' use-cache 1
-zstyle ':completion::complete:*' cache-path $ZSH_CACHE/zcompcache
+zstyle ':completion::complete:*' cache-path $ZSH_CACHE
 
 # Should ignore most ZSH functions? TODO check that
 zstyle ':completion:*:functions' ignored-patterns '_*'

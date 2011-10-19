@@ -9,8 +9,8 @@ print -- " Zsh $ZSH_VERSION loading theme $ZSH_THEME."
 
 # First things first, make sure cache directories exist
 # TODO slow start with zcompdump and NFS ... many, many files?
-mkdir -p $ZSH_CACHE/history
-mkdir -p $ZSH_CACHE/zcompdump
+ZSH_CACHE=$ZSH_CACHE/$(hostname -s)
+mkdir -p $ZSH_CACHE
 
 # To test ZSH_VERSION
 autoload -U is-at-least
@@ -31,7 +31,7 @@ for plugin ($plugins) fpath=($ZSH/plugins/$plugin $fpath)
 # Load and run compinit
 
 autoload -U compinit
-compinit -i -d $ZSH_CACHE/zcompdump/zcompdump
+compinit -i -d $ZSH_CACHE/zcompdump
 
 # Load all of the plugins that were defined in ~/.zshrc
 for plugin ($plugins); do
