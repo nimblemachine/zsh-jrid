@@ -10,7 +10,6 @@ print -- " Zsh $ZSH_VERSION loading theme $ZSH_THEME."
 # First things first, make sure cache directories exist
 # TODO slow start with zcompdump and NFS ... many, many files?
 mkdir -p $ZSH_CACHE/history
-mkdir -p $ZSH_CACHE/zcompcache
 mkdir -p $ZSH_CACHE/zcompdump
 
 # To test ZSH_VERSION
