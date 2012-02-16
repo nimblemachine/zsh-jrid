@@ -40,3 +40,7 @@ alias _='sudo'
 # Show history
 alias history='history -f'
 
+# TODO: a bit dodgy
+# A detached screen session will still point to a dead ssh agent socket.
+# Find the most recent one, and reconnect to it.
+alias reconnect-sshagent='export SSH_AUTH_SOCK=$(find /tmp/ssh-* -user `whoami` -name agent\* | xargs \ls -1tr | tail -n 1)'
