@@ -156,6 +156,9 @@ zstyle ':vcs_info:git*+post-backend:*' hooks \
 	git-untracked-files
 
 
+# Disable patterns
+# TODO: make this more generic and driven from the zsh config file
+zstyle ':vcs_info:*' disable-patterns "$HOME/projects/linux(*|*/*)"
 
 
 # vcs_info defines quite a few defaults (see manual) 
