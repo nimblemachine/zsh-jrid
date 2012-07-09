@@ -21,6 +21,9 @@ fi
 if [[ -d "/usr/texbin/" ]]; then
 	PATH+=:/usr/texbin
 fi
+if [[ -d "/usr/local/texbin/" ]]; then
+	PATH+=:/usr/local/texbin
+fi
 if [[ -d "/opt/local/bin/" ]]; then
 	PATH+=:/opt/local/bin
 fi
