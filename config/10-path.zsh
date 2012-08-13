@@ -4,69 +4,40 @@
 
 # Should be sourced early on since other configs may rely on it.
 # Give priority to exotic locations over the default ones.
-#PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/X11R6/bin:/usr/pkg/bin
+
+function testpath() {
+	dir=$1
+	sep=':'
+	if [[ $PATH = '' ]]; then sep=''
+	fi
+
+	if [[ -d $dir ]]; then 
+		if [[ -x $dir ]]; then
+			PATH+=$sep$dir
+		fi
+	fi
+}
 
 PATH=''
 
-if [[ -d "$HOME/bin" ]]; then
-	# Push my bin dir first to override stupid Apple broken utils
-	PATH+=$HOME/bin
-fi
+# Override with own utils
+testpath "$HOME/bin"
+testpath "$HOME/sbin"
 
-if [[ -d "/sw/bin" ]]; then
-	PATH+=:/sw/bin
-fi
-
-if [[ -d "/usr/texbin/" ]]; then
-	PATH+=:/usr/texbin
-fi
-
-if [[ -d "/usr/local/texbin/" ]]; then
-	PATH+=:/usr/local/texbin
-fi
-
-if [[ -d "/opt/local/libexec/gnubin/" ]]; then
-	PATH+=:/opt/local/libexec/gnubin
-fi
-
-if [[ -d "/opt/local/bin/" ]]; then
-	PATH+=:/opt/local/bin
-fi
-
-if [[ -d "/usr/lib/distcc" ]]; then
-	PATH+=:/usr/lib/distcc
-fi
-
-# GIT completion
-if [[ -d "/usr/local/git/libexec/git-core" ]]; then
-	PATH+=:/usr/local/git/libexec/git-core
-fi
-
-# GIT binaries
-if [[ -d "/usr/local/git/bin" ]]; then
-	PATH+=:/usr/local/git/bin
-fi
-
+testpath "/sw/bin"
+testpath "/usr/texbin/"							# TexLive on Mac (symlink)
+testpath "/usr/local/texbin/"					# TexLive
+testpath "/opt/local/libexec/gnubin/"			# Macports
+testpath "/opt/local/bin/"						# Macports
+testpath "/usr/lib/distcc"						# Distcc
+testpath "/usr/local/git/libexec/git-core"		# GIT completion
+testpath "/usr/local/git/bin"					# GIT binaries
 
 # Standard paths at the end
-
-if [[ -d '/bin' ]]; then 
-	PATH+=:/bin
-fi
-
-if [[ -d '/sbin' ]]; then 
-	PATH+=:/sbin
-fi
-
-if [[ -d '/usr/bin' ]]; then 
-	PATH+=:/usr/bin
-fi
-
-if [[ -d '/usr/local/bin' ]]; then 
-	PATH+=:/usr/local/bin
-fi
-
-if [[ -d '/usr/local/sbin' ]]; then 
-	PATH+=:/usr/local/sbin
-fi
+testpath '/bin'
+testpath '/sbin'
+testpath '/usr/bin'
+testpath '/usr/sbin'
+testpath '/usr/local/bin'
+testpath '/usr/local/sbin'
 
