@@ -76,12 +76,14 @@ function +vi-git-remotebranch()
 	fi
 
 	# for git prior to 1.7
-	ahead=$(git rev-list origin/${hook_com[branch_orig]}..HEAD | wc -l)
+	ahead=$(git rev-list ${remote}..HEAD | wc -l)
+	# ahead=$(git rev-list origin/${hook_com[branch_orig]}..HEAD | wc -l)
 	# ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
 	(( $ahead )) && gitstatus+=( "+${ahead}" ) || gitstatus+=( "+0" )
 
 	# for git prior to 1.7
-	behind=$(git rev-list HEAD..origin/${hook_com[branch_orig]} | wc -l)
+	behind=$(git rev-list HEAD..${remote} | wc -l)
+	# behind=$(git rev-list HEAD..origin/${hook_com[branch_orig]} | wc -l)
 	# behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
 	(( $behind )) && gitstatus+=( "-${behind}" ) || gitstatus+=( "-0" )
 
