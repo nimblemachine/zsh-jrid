@@ -2,6 +2,10 @@
 # Version Control Systems
 #
 
+is-at-least 4.3.9 $ZSH_VERSION
+err=$?
+if [[ $err -eq 0 ]]; then
+
 
 # Get the module up
 autoload -Uz vcs_info
@@ -241,3 +245,5 @@ then
 	add-zsh-hook precmd	vcs_precmd
 fi
 
+# ZSH_VERSION >= 4.3.8
+fi
