@@ -10,12 +10,14 @@ function _my_vim()
 {
 	local my_vi
 
-	my_vi=$(which mvim)
+#	my_vi=$(which mvim)
+#	err=$?
+#	if [[ $err -eq 1 ]]; then
+#		my_vi=$(which vim)	
+#		err=$?
+#	fi
+	my_vi=$(which vim)	
 	err=$?
-	if [[ $err -eq 1 ]]; then
-		my_vi=$(which vim)	
-		err=$?
-	fi
 	if [[ $err -eq 1 ]]; then
 		my_vi=$(which vi)	
 	fi

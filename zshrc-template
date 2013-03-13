@@ -5,12 +5,12 @@
 
 # Zsh will try its best to find your favorite users and hosts, but you can add
 # some here if you want
-ZSH_USERS=(jrid jridoux julien)
-ZSH_HOSTS=(typhoon jrid)
+ZSH_USERS=(jrid julien)
+ZSH_HOSTS=(typhoon)
 
 # For Mutt users 
-EMAIL=jridoux@unimelb.edu.au
-DOMAIN=".cubinlab.ee.unimelb.edu.au"
+EMAIL=julien@synclab.org
+DOMAIN=".synclab.org"
 MAILDIR=~/mbox
 
 # Set name of the theme to load.
