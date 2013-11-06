@@ -10,7 +10,8 @@ mkdir -p ${DISTCC_DIR}
 ARCH=$(uname -i)
 
 # should make this more generic using avahi
-if [ "$(basename `which avahi-browse`)" = "avahi-browse" ]
+which avahi-browse > /dev/null 2>&1
+if [ $? -eq 0 ] 
 then
 	DISTCC_HOSTS=$(avahi-browse -rpt _distcc_arch._tcp | grep "arch=$ARCH" | cut -d ';' -f 4 | tr '\n' ' ')
 fi
