@@ -41,3 +41,8 @@ testpath '/usr/sbin'
 testpath '/usr/local/bin'
 testpath '/usr/local/sbin'
 
+if [[ -d /opt/local/share/man ]]
+then
+	export MANPATH=/opt/local/share/man:$MANPATH
+fi
+
