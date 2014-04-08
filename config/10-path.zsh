@@ -25,10 +25,11 @@ testpath "$HOME/bin"
 testpath "$HOME/sbin"
 
 testpath "/sw/bin"
-testpath "/usr/texbin/"							# TexLive on Mac (symlink)
-testpath "/usr/local/texbin/"					# TexLive
-testpath "/opt/local/libexec/gnubin/"			# Macports
-testpath "/opt/local/bin/"						# Macports
+testpath "/usr/texbin"							# TexLive on Mac (symlink)
+testpath "/usr/local/texbin"					# TexLive
+testpath "/opt/local/libexec/gnubin"			# Macports
+testpath "/opt/local/bin"						# Macports
+testpath "/opt/local/sbin"						# Macports
 testpath "/usr/lib/distcc"						# Distcc
 testpath "/usr/local/git/libexec/git-core"		# GIT completion
 testpath "/usr/local/git/bin"					# GIT binaries
